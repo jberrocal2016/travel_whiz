@@ -11,15 +11,30 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
+  position: relative;
 }
-
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(30, 35, 45, 1.2),
+    rgba(0, 0, 0, 0)
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+/* Styles for Nav Bar*/
 nav {
   background-color: #333;
   color: white;
   display: flex;
   align-items: center;
   padding: 10px;
-  z-index: 1;
 }
 .nav-title {
   flex: 1;
@@ -33,22 +48,24 @@ nav {
   border-radius: 5px;
   height: 20px;
 }
-
+/* Styles for navigation links */
 .nav-links {
   flex: 3;
   text-align: center;
 }
-
 .nav-links a {
   color: white;
   text-decoration: none;
-  padding: 0 10px;
+  margin-right: 20px; /* Add margin to create space between links */
 }
+
+/* Styles for Search Bar*/
 .nav-search {
   flex: 1;
   text-align: right;
   position: relative;
   padding-right: 10px;
+  width: 400px;
 }
 .search-input {
   padding: 5px;
@@ -75,12 +92,19 @@ nav {
 .search-buttons button + button {
   margin-left: 5px;
 }
+/* Hide the search bar */
+.hidden {
+  visibility: hidden;
+}
 
+/* Styles for the Pages Content*/
 .content {
   margin: 100px;
+  position: relative;
+  /*z-index: 0;*/
 }
 .social-icons {
-  position: absolute;
+  position: fixed;
   left: 20px;
   top: 340px;
   display: flex;
@@ -91,26 +115,13 @@ nav {
   font-size: 24px;
   margin: 10px;
 }
+
+/* Styles for the Main Page*/
 .introduction {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   font-size: 28px;
-  z-index: 1;
-}
-.introduction ::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(30, 35, 45, 0.577),
-    rgba(0, 0, 0, 0)
-  );
-  z-index: -1;
 }
 .introduction-title,
 .introduction-text {
@@ -130,4 +141,52 @@ nav {
   cursor: pointer;
   align-self: flex-start;
   margin-top: 20px;
+}
+
+/* Styles for the About Us page*/
+.about-us-title {
+  font-size: 28px;
+  padding-top: 10px;
+}
+.about-us-text {
+  margin-top: 28px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.about-us strong {
+  font-weight: bold;
+  font-style: italic;
+}
+.our-team {
+  display: flex;
+  margin-top: 28px;
+  margin-left: 38px;
+}
+.our-team-title {
+  font-size: 28px;
+  padding: 20px;
+  max-width: 280px;
+}
+.our-team-members {
+  padding-top: 20px;
+  display: flex;
+}
+.our-team-members p {
+  padding-right: 30px;
+}
+.our-team-members i {
+  font-style: normal;
+  font-size: 24px;
+  justify-content: center;
+  align-items: center;
+}
+.our-team-members button {
+  padding: 5px;
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  width: 100%;
+}
+.member {
+  padding: 30px;
 }
