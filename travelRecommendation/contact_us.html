@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Travel Whiz</title>
+    <title>About Us - Travel Whiz</title>
     <link rel="stylesheet" href="./travel_recommendation.css" />
     <link
       rel="stylesheet"
@@ -18,11 +18,11 @@
         />TravelWhiz
       </div>
       <div class="nav-links">
-        <a href="#">Home</a>
+        <a href="/travelRecommendation/travel_recommendation.html">Home</a>
         <a href="/travelRecommendation/about_us.html">About Us</a>
-        <a href="/travelRecommendation/contact_us.html">Contact Us</a>
+        <a href="#">Contact Us</a>
       </div>
-      <div class="nav-search">
+      <div class="nav-search hidden">
         <input
           type="text"
           class="search-input"
@@ -41,17 +41,32 @@
         <a href="#"><i class="fa fa-instagram"></i></a>
         <a href="#"><i class="fa fa-youtube-play"></i></a>
       </div>
-      <div class="introduction">
-        <div class="introduction-title">
-          <h1>EXPLORE DREAM DESTINATION</h1>
+      <div class="contact-us">
+        <div class="contact-us-title">
+          <h1>CONTACT US</h1>
+          <p>Get in touch</p>
         </div>
-        <div class="introduction-text">
-          <p>
-            It encourages exploration of unfamiliar territories, embracing
-            diverse cultures and landscapes, while pursuing the desired
-            destination that captivates the heart and ignites a sense of wonder.
-          </p>
-          <button class="book-now-btn">BOOK NOW</button>
+        <div class="contact-form">
+          <form id="contactForm">
+            <div>
+              <label for="name">Name</label><br />
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div>
+              <label for="email">Email</label><br />
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div>
+              <label for="message">Message</label><br />
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
         </div>
       </div>
     </div>
