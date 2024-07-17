@@ -23,10 +23,15 @@ function handleHomePage() {
     // Set up the event listener for the search button
     searchButton.addEventListener("click", () => {
       if (inputElement) {
-        const input = inputElement.value.toLowerCase();
+        const keyword = inputElement.value.toLowerCase();
         // Process input when the search button is clicked
 
-        
+        fetch("travel_recommendation_api.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const recommendation = data;
+            console.log(recommendation);
+          });
       } else {
         console.error("Keyword input element not found.");
       }
@@ -35,7 +40,7 @@ function handleHomePage() {
     console.error("Keyword input element not found.");
   }
 
-  if (clearButton){
+  if (clearButton) {
     // Set up the event listener for the clear button
     clearButton.addEventListener("click", () => {
       if (inputElement) {
