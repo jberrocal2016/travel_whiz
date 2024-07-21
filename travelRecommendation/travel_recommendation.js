@@ -23,14 +23,57 @@ function handleHomePage() {
     // Set up the event listener for the search button
     searchButton.addEventListener("click", () => {
       if (inputElement) {
-        const keyword = inputElement.value.toLowerCase();
-        // Process input when the search button is clicked
-
+        // Converting keyword to lower case, trimming and erasing unwated characters
+        const keyword = inputElement.value
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z\s]/g, "");
+        // Handling empty input
+        if (keyword === "") {
+          alert("Please enter a keyword!");
+          return;
+        }
+        // Retrieving data
         fetch("travel_recommendation_api.json")
           .then((response) => response.json())
           .then((data) => {
-            const recommendation = data;
-            console.log(recommendation);
+            //searching in countries
+            data.countries.forEach((country) => {
+              country.cities.forEach((city) => {
+                if (
+                  city.name.toLowerCase().includes(keyword) ||
+                  city.description.toLowerCase().includes(keyword)
+                ) {
+                  console.log(city);
+                }
+              });
+            });
+            //searching in temples
+            if (["temple", "temples"].includes(keyword)) {
+              console.log(data.temples);
+            } else {
+              data.temples.forEach((temple) => {
+                if (
+                  temple.name.toLowerCase().includes(keyword) ||
+                  temple.description.toLowerCase().includes(keyword)
+                ) {
+                  console.log(temple);
+                }
+              });
+            }
+            //searching in beaches
+            if (["beach", "beaches"].includes(keyword)) {
+              console.log(data.beaches);
+            } else {
+              data.beaches.forEach((beach) => {
+                if (
+                  beach.name.toLowerCase().includes(keyword) ||
+                  beach.description.toLowerCase().includes(keyword)
+                ) {
+                  console.log(beach);
+                }
+              });
+            }
           });
       } else {
         console.error("Keyword input element not found.");
