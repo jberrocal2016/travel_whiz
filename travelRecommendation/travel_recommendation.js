@@ -115,11 +115,40 @@ function handleHomePage() {
     console.error("Clear button element not found.");
   }
 
-  //displaying results in homepage
+  // Displaying results in homepage
   function displayResults(destination) {
-    resultDiv.innerHTML += `<img src="${destination.imageUrl}">`;
-    resultDiv.innerHTML += `<h2>${destination.name}</h2>`;
-    resultDiv.innerHTML += `<p>${destination.description}</p><br>`;
+    // Check if destination has a valid timeZone property
+    const localTime = destination.timeZone
+      ? getTimeZone(destination.timeZone)
+      : "N/A";
+
+    // Create a single string for the innerHTML
+    const content = `
+    <div>
+      <img src="${destination.imageUrl}" alt="${destination.name}">
+      <h2>${destination.name}</h2>
+      <p>Local Time: ${localTime}<br><br>${destination.description}</p>
+    </div><br>
+  `;
+    // Append the content to resultDiv
+    resultDiv.innerHTML += content;
+  }
+
+  // Retrieving local time
+  function getTimeZone(timeZone) {
+    try {
+      const options = {
+        timeZone: timeZone,
+        hour12: true,
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+      };
+      return new Intl.DateTimeFormat("en-US", options).format(new Date());
+    } catch (error) {
+      console.error(`Invalid time zone: ${timeZone}`);
+      return "Invalid time zone";
+    }
   }
 }
 
