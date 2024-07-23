@@ -18,10 +18,19 @@ function handleHomePage() {
   const searchButton = document.getElementById("search");
   const clearButton = document.getElementById("clear");
   const inputElement = document.getElementById("keyword");
+  const resultDiv = document.getElementById("recommendations");
 
   if (searchButton) {
+    // Set up the event listener for the enter key
+    inputElement.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        searchButton.click();
+      }
+    });
     // Set up the event listener for the search button
     searchButton.addEventListener("click", () => {
+      resultDiv.innerHTML = ""; //clearing the results
+
       if (inputElement) {
         // Converting keyword to lower case, trimming and erasing unwated characters
         const keyword = inputElement.value
@@ -44,35 +53,44 @@ function handleHomePage() {
                   city.name.toLowerCase().includes(keyword) ||
                   city.description.toLowerCase().includes(keyword)
                 ) {
-                  console.log(city);
+                  displayResults(city);
                 }
               });
             });
             //searching in temples
             if (["temple", "temples"].includes(keyword)) {
-              console.log(data.temples);
+              data.temples.forEach((temple) => {
+                displayResults(temple);
+              });
             } else {
               data.temples.forEach((temple) => {
                 if (
                   temple.name.toLowerCase().includes(keyword) ||
                   temple.description.toLowerCase().includes(keyword)
                 ) {
-                  console.log(temple);
+                  displayResults(temple);
                 }
               });
             }
             //searching in beaches
             if (["beach", "beaches"].includes(keyword)) {
-              console.log(data.beaches);
+              data.beaches.forEach((beach) => {
+                displayResults(beach);
+              });
             } else {
               data.beaches.forEach((beach) => {
                 if (
                   beach.name.toLowerCase().includes(keyword) ||
                   beach.description.toLowerCase().includes(keyword)
                 ) {
-                  console.log(beach);
+                  displayResults(beach);
                 }
               });
+            }
+            //keyword not found message
+            if (resultDiv.innerHTML === "") {
+              alert("keyword not found, try again.");
+              inputElement.value = "";
             }
           });
       } else {
@@ -88,12 +106,20 @@ function handleHomePage() {
     clearButton.addEventListener("click", () => {
       if (inputElement) {
         inputElement.value = ""; // Clear the input field
+        resultDiv.innerHTML = ""; // Clear recommendations
       } else {
         console.error("Keyword input element not found.");
       }
     });
   } else {
     console.error("Clear button element not found.");
+  }
+
+  //displaying results in homepage
+  function displayResults(destination) {
+    resultDiv.innerHTML += `<img src="${destination.imageUrl}">`;
+    resultDiv.innerHTML += `<h2>${destination.name}</h2>`;
+    resultDiv.innerHTML += `<p>${destination.description}</p><br>`;
   }
 }
 
