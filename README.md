@@ -17,4 +17,3 @@ Travel Whiz is a web application designed to provide travel recommendations base
 - `travel_recommendation.css` - The stylesheet for styling the web page.
 - `travel_recommendation.js` - The JavaScript file handling the search and display functionality.
 - `travel_recommendation_api.json` - The JSON file containing destination data.
-
