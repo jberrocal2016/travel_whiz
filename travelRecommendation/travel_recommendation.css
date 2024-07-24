@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-image: url("/travelRecommendation/img/background.jpeg");
+  background-image: url("./travelRecommendation/img/background.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
