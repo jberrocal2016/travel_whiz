@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Travel Whiz</title>
+    <link rel="stylesheet" href="./travel_recommendation.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body class="home-page">
+    <nav>
+      <div class="nav-title">
+        <img
+          src="/travelRecommendation/img/airplain.png"
+          alt="Airplane"
+        />TravelWhiz
+      </div>
+      <div class="nav-links">
+        <a href="">Home</a>
+        <a href="/travelRecommendation/about_us.html">About Us</a>
+        <a href="/travelRecommendation/contact_us.html">Contact Us</a>
+      </div>
+      <div class="nav-search">
+        <input
+          type="text"
+          id="keyword"
+          class="search-input"
+          placeholder="Enter a destination or keyword"
+        />
+        <div class="search-buttons">
+          <button id="search">Search</button>
+          <button id="clear">Clear</button>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="social-icons">
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-youtube-play"></i></a>
+      </div>
+      <div class="introduction">
+        <div class="introduction-title">
+          <h1>EXPLORE DREAM DESTINATION</h1>
+        </div>
+        <div class="introduction-text">
+          <p>
+            It encourages exploration of unfamiliar territories, embracing
+            diverse cultures and landscapes, while pursuing the desired
+            destination that captivates the heart and ignites a sense of wonder.
+          </p>
+          <button class="book-now-btn">BOOK NOW</button>
+        </div>
+      </div>
+      <div id="recommendations" class="recommendations"></div>
+    </div>
+    <script src="/travelRecommendation/travel_recommendation.js"></script>
+  </body>
+</html>

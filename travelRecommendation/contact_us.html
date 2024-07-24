@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About Us - Travel Whiz</title>
+    <link rel="stylesheet" href="./travel_recommendation.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body class="contact-us-page">
+    <nav>
+      <div class="nav-title">
+        <img
+          src="/travelRecommendation/img/airplain.png"
+          alt="Airplane"
+        />TravelWhiz
+      </div>
+      <div class="nav-links">
+        <a href="/travelRecommendation/travel_recommendation.html">Home</a>
+        <a href="/travelRecommendation/about_us.html">About Us</a>
+        <a href="">Contact Us</a>
+      </div>
+      <div class="nav-search hidden">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Enter a destination or keyword"
+        />
+        <div class="search-buttons">
+          <button id="search">Search</button>
+          <button id="clear">Clear</button>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="social-icons">
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-youtube-play"></i></a>
+      </div>
+      <div class="contact-us">
+        <div class="contact-us-title">
+          <h1>CONTACT US</h1>
+          <p>Get in touch</p>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <div>
+              <label for="name">Name</label><br />
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div>
+              <label for="email">Email</label><br />
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div>
+              <label for="message">Message</label><br />
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="/travelRecommendation/travel_recommendation.js"></script>
+  </body>
+</html>
